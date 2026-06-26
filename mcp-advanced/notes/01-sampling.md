@@ -21,7 +21,8 @@
 
 ![option 1](image.png)
 
-    2. use sampling. the server generates a prompt and asks the client "could you call Claude for me?" the client, which already has a connection to Claude, makes the call and returns the results.
+
+2. use sampling. the server generates a prompt and asks the client "could you call Claude for me?" the client, which already has a connection to Claude, makes the call and returns the results.
 
 ![option 2](image-1.png)
 
