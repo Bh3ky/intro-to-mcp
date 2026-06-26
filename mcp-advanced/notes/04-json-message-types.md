@@ -19,3 +19,27 @@ Model Context Protocol (MCP) uses JSON messages to handle communication between 
 - client messages = include requests that clients send to servers (like tool calls) and notifications that clients might send.
 
 - server messages = include requests that servers send to clients and notifications that servers broadcast
+
+
+
+# The STDIO transport
+
+The communication channel used when MCP clients and servers communicates is called **transport**.
+
+
+**The Stdio Transport**
+
+- here, the client launches the MCP server as a subprocess and communicates through standard input and output streams.
+
+![stdio transport](image-4.png)
+
+- the client sends messages to the server using the server's `stdin`, then the server responds by writing to `stdout`. 
+- either the server or client can send a message at any time and only works when client and server run on the same machine.
+
+
+**MCP Connection Sequence**
+
+- every MCP connection must start with a specific three-message handshake:
+    1. initialize request - client sends this first
+    2. initialize result - server responds with capabilities
+    3. initialize notification - client confirms (no response expected)
